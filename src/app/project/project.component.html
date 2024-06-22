@@ -1,0 +1,13 @@
+
+<div class="pill-group" *ngFor="let project of projects" (click)="onProjectClick(project)">
+    <div class="project-pill" >
+        <h2>{{ project.name }}</h2>
+        <ul>
+            <li *ngFor="let skill of project.skills" [ngClass]="setSkillPillColor(skill)" class="pill" >{{ skill }}</li>
+        </ul>
+        <p>{{  project.disc }}</p>
+    </div>
+</div>
+<div *ngIf="projects.length === 0">
+    Loading project details...
+</div>
