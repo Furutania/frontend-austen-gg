@@ -2,13 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from './project.service';
 import { Router } from '@angular/router';
-interface Project {
-  name: string;
-  skills: string[];
-  slug: string;
-  body: string;
-  disc: string;
-}
+import { Project } from '../project.interface'
 
 
 

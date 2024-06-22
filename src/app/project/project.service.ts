@@ -1,14 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Project } from '../project.interface'
 
-interface Project {
-  name: string;
-  skills: string[];
-  slug: string;
-  body: string;
-  disc: string;
-}
 
 @Injectable({
   providedIn: 'root'

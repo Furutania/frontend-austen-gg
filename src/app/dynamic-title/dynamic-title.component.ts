@@ -36,10 +36,7 @@ export class DynamicTitleComponent implements AfterViewInit {
 
         if (charIndex === text.length) {
           // When typing is complete for current title, proceed to next if available
-          if (idx < this.titles.length - 1) {
-
             setTimeout(() => this.typeWriterEffectDelete(idx), 4000);
-          }
         }
       });
   }
@@ -53,7 +50,11 @@ export class DynamicTitleComponent implements AfterViewInit {
       .subscribe(() => {
         titleElement.textContent = titleElement.textContent.substring(0, (titleElement.textContent.length - 1)); // Update the title content
       });
-      setTimeout(() => this.typeWriterEffect(idx + 1), 3000); // Delay before typing next title
+      idx++
+      if (idx >=  this.titles.length) {
+        idx =0;
+      }
+      setTimeout(() => this.typeWriterEffect(idx), 3000); // Delay before typing next title
   }
 
 }
