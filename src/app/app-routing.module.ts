@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProjectPageComponent } from './project-page/project-page.component';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 const routes: Routes = [
-  {path: 'project/:slug', component: ProjectPageComponent}
+  {path: '', component: HomeComponent},
+  {path: 'project', component: ProjectPageComponent},
+  { path: '**', redirectTo: '/' }
+  
 ];
 
 @NgModule({

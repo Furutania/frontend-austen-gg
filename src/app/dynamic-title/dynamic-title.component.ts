@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit,Input  } from '@angular/core';
 import { Observable, interval, Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 
@@ -10,12 +10,11 @@ import { take } from 'rxjs/operators';
 export class DynamicTitleComponent implements AfterViewInit {
   @ViewChild('typewriterTitle', { static: false }) typewriterTitle!: ElementRef;
 
-  titleText: string = 'Austen Furutani: ';
-  titles: string[] = ['Back-End Developer', 'Frontend Developer', 'Software Engineer'];
+  @Input() titleText: string = '';
+  @Input() titles: string[] = [''];
 
 
   ngAfterViewInit() {
-    // Start typing the titles sequentially
     this.typeWriterEffect(0);
   }
 
@@ -36,6 +35,7 @@ export class DynamicTitleComponent implements AfterViewInit {
 
         if (charIndex === text.length) {
           // When typing is complete for current title, proceed to next if available
+          console.log()
             setTimeout(() => this.typeWriterEffectDelete(idx), 4000);
         }
       });

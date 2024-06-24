@@ -1,1 +1,22 @@
-<p>project-page works!</p>
+
+
+<header class="banner">
+    <div class="banner-content">
+      <app-dynamic-title titleText="{{ project.name }}" [titles]="[]"></app-dynamic-title>
+    </div>
+</header>
+
+<div class ="center-div">
+    <h3></h3>
+    <div>
+        <ul>
+            <li *ngFor="let skill of project.skills" [ngClass]="setSkillPillColor(skill)" class="pill" >{{ skill }}</li>
+        </ul>
+    </div>
+
+    <a  *ngIf="project.github != '' " href="{{ project.github }}">Github Project Link </a>
+    <p *ngIf="project.github == '' ">Github repo is private</p>
+    <h3>Overview</h3>
+    <div [innerHTML]="  htmlContent  "></div>
+    <!-- Add your project details view here -->
+</div>

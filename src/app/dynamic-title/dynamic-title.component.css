@@ -1,10 +1,11 @@
 .typewriter-title {
-    overflow: hidden; /* Ensures the text is not visible outside the container */
-    border-right: .15em solid orange; /* Vertical blinking cursor */
-    white-space: nowrap; /* Keeps text on a single line */
-    margin: 0 auto; /* Centers the text */
-    letter-spacing: .15em; /* Adjust as needed */
+    overflow: hidden; 
+    border-right: .15em solid rgb(244, 244, 244); 
+    white-space: nowrap; 
+    margin: 0 auto; 
+    letter-spacing: .15em; 
     animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    word-wrap: break-word
   }
   
   @keyframes typing {
@@ -21,6 +22,6 @@
       border-color: transparent;
     }
     50% {
-      border-color: orange;
+      border-color: rgb(255, 255, 255);
     }
   }

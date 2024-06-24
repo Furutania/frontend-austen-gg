@@ -24,6 +24,7 @@
     padding: 0;
     display: flex;
   }
+  
   li {
     display: inline-block;
     padding: 5px;
@@ -31,7 +32,6 @@
     margin-right: 5px;
   }
   .pill {
-
     align-items: center;
     --pill-accent: var(--bright-blue);
     background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
@@ -54,18 +54,25 @@
     background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
   }
 
-  .pill-python {
+  .pill-language {
     --pill-accent: var(--bright-blue);
     background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
     color: var(--pill-accent);
   }
   
-  .pill-javascript {
+  .pill-framework {
     --pill-accent: var(--french-violet);
     background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
     color: var(--pill-accent);
   }
-  
+
+  .pill-platform {
+    --pill-accent: var(--vivid-pink);
+    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
+    color: var(--pill-accent);
+  }
+
+
   .pill-default {
     --pill-accent: var(--hot-red);
     background: color-mix(in srgb, var(--pill-accent) 5%, transparent);

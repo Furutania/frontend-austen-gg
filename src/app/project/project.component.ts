@@ -1,10 +1,10 @@
 // src/app/project-display/project-display.component.ts
 import { Component, OnInit } from '@angular/core';
-import { ProjectService } from './project.service';
 import { Router } from '@angular/router';
+import { BackendService } from '../backend.service';
 import { Project } from '../project.interface'
 
-
+import { setSkillPillColorHelper } from '../csshelper';
 
 @Component({
   selector: 'app-project',
@@ -21,11 +21,11 @@ export class ProjectComponent implements OnInit {
   ])
 
 
-  constructor(private projectService: ProjectService, private router : Router) {}
+  constructor(private backenService: BackendService, private router : Router) {}
 
   async ngOnInit(): Promise<void> {
     try {
-      this.projects = await this.projectService.getProjects();
+      this.projects = await this.backenService.getProjects();
     } catch (error) {
       if(error instanceof Error){
         console.error(`Error fetching projects: ${error.message}`);
@@ -35,15 +35,13 @@ export class ProjectComponent implements OnInit {
 
   onProjectClick(project: Project): void {
     this.selectedProject = project;
-    this.router.navigate(['/project', this.selectedProject.slug]);
+    // this.router.navigate(['/project', this.selectedProject.slug]);
+    const projectUrl = `/project`;
+    this.router.navigate([projectUrl], { queryParams: { _id: JSON.stringify(project._id) } });
   }
 
   setSkillPillColor(skill: string): string {
-    let cssType : string | undefined =  this.skillCssMap.get(skill);
-    if(cssType === undefined){
-      return 'pill-default';
-    }
-    return cssType;
+    return setSkillPillColorHelper(skill)
   }
 
 }

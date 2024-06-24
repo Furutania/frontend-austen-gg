@@ -1,17 +1,13 @@
+//DEFUNCED moved to backend Service
+
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Project } from '../project.interface'
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
-
-  private apiUrl = 'http://localhost:3000/api/projects';  // Update with your actual API URL
-
-  constructor(private http: HttpClient) { }
+  
+  private apiUrl = "http://localhost:3000/api/projects";
 
   async getProjects(): Promise<Project[]> {
     try {
