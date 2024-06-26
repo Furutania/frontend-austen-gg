@@ -4,9 +4,9 @@ import { ProjectPageComponent } from './project-page/project-page.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 const routes: Routes = [
-  {path: '', component: HomeComponent},
   {path: 'project', component: ProjectPageComponent},
-  { path: '**', redirectTo: '/' }
+  {path: '', component: HomeComponent},
+  { path: '**', redirectTo: '' }
   
 ];
 

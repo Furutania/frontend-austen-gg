@@ -4,7 +4,7 @@ import { Project } from '../project.interface';
 import { setSkillPillColorHelper } from '../csshelper';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { BackendService } from '../backend.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-project-page',
   templateUrl: './project-page.component.html',
@@ -20,7 +20,7 @@ export class ProjectPageComponent {
     ['Python', 'pill-python'],
     ['JavaScript', 'pill-javascript']
   ])
-  constructor(private backenService: BackendService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {}
+  constructor(private backenService: BackendService, private route: ActivatedRoute, private sanitizer: DomSanitizer, private router : Router) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -28,6 +28,9 @@ export class ProjectPageComponent {
       if (params['_id']) {
         let id = JSON.parse(params['_id']);
         this.getProject(id);
+      }
+      else{
+        this.router.navigate(['']);
       }
     });
 
@@ -41,6 +44,7 @@ export class ProjectPageComponent {
     } catch (error) {
       if(error instanceof Error){
         console.error(`Error fetching projects: ${error.message}`);
+        this.router.navigate(['']);
       }
     }
   }

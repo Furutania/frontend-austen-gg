@@ -5,7 +5,7 @@ import { Project } from './project.interface'
 })
 export class BackendService {
   
-  private apiUrl = "http://35.89.136.226:3000/";
+  private apiUrl = "https://apicaller.austen.gg/";
 
   async getProjects(): Promise<Project[]> {
     try {
