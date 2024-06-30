@@ -1,10 +1,9 @@
-
-
 <header class="banner">
     <div class="banner-content">
       <app-dynamic-title titleText="{{ project.name }}" [titles]="[]"></app-dynamic-title>
     </div>
 </header>
+<app-navbar></app-navbar>
 
 <div class ="center-div">
     <h3></h3>
@@ -14,7 +13,7 @@
         </ul>
     </div>
 
-    <a  *ngIf="project.github != '' " href="{{ project.github }}">Github Project Link </a>
+    <a  *ngIf="project.github != '' " href="{{ project.github }}" target="_blank" >Github Project Link </a>
     <p *ngIf="project.github == '' ">Github repo is private</p>
     <h3>Overview</h3>
     <div [innerHTML]="  htmlContent  "></div>

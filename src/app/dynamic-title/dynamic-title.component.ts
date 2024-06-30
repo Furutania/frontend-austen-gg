@@ -9,15 +9,34 @@ import { take } from 'rxjs/operators';
 })
 export class DynamicTitleComponent implements AfterViewInit {
   @ViewChild('typewriterTitle', { static: false }) typewriterTitle!: ElementRef;
-
+  titleStart: string = '';
   @Input() titleText: string = '';
   @Input() titles: string[] = [''];
 
 
   ngAfterViewInit() {
-    this.typeWriterEffect(0);
+    this.initTitle();
   }
 
+  async initTitle() {
+    const titleElement = this.typewriterTitle.nativeElement;
+    const text = this.titleText;
+    let charIndex = 0;
+    interval(50) // Adjust typing speed (milliseconds per character) as needed
+      .pipe(
+        take(text.length) // Take until the length of the current title
+      )
+      .subscribe(() => {
+        titleElement.textContent += text.charAt(charIndex); // Update the title content
+        charIndex++;
+
+        if (charIndex === text.length) {
+          // When typing is complete for current title, proceed to next if available
+          
+            setTimeout(() => this.typeWriterEffect(0), 10);
+        }
+      });
+  }
 
   async typeWriterEffect(idx: number) {
     const titleElement = this.typewriterTitle.nativeElement;

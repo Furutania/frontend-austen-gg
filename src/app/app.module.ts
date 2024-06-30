@@ -8,15 +8,17 @@ import { ProjectComponent } from './project/project.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { DynamicTitleComponent } from './dynamic-title/dynamic-title.component';
 import { HomeComponent } from './home/home.component';
-
-
+import { NavbarComponent } from './navbar/navbar.component';
+import { AboutComponent } from './about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
     ProjectComponent,
     ProjectPageComponent,
     HomeComponent,
-    DynamicTitleComponent
+    DynamicTitleComponent,
+    AboutComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

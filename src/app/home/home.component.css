@@ -58,7 +58,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
     box-sizing: inherit;
     position: relative;
   }
@@ -96,6 +95,28 @@
     flex-wrap: wrap;
     gap: 1.25rem;
   }
+
+
+  .container {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%
+}
+
+.item {
+  --color :  rgb(195, 220, 226);
+  background-color: var(--color);
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box; /* Ensures padding is included in the element's width */
+    margin: 5px;
+    transition: background 0.3s ease;
+    
+}
+.item:hover {
+  background: color-mix(in srgb, var(--color) 50%, transparent);
+}
 
   .pill {
     display: flex;
@@ -160,7 +181,7 @@
   @media screen and (max-width: 650px) {
     .content {
       flex-direction: column;
-      width: max-content;
+      width: 100%;
     }
 
     .divider {
@@ -185,6 +206,8 @@
     justify-content: center;
     text-align: center;
 }
+
+
 
 .banner-content {
   color: white;

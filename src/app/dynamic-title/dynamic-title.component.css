@@ -1,27 +1,36 @@
 .typewriter-title {
-    overflow: hidden; 
-    border-right: .15em solid rgb(244, 244, 244); 
-    white-space: nowrap; 
-    margin: 0 auto; 
-    letter-spacing: .15em; 
-    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-    word-wrap: break-word
+  overflow: hidden; 
+  border-right: .15em solid rgb(244, 244, 244); 
+  white-space: nowrap; /* Prevents text wrapping */
+  margin: 0 auto; 
+  letter-spacing: .15em; 
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+  width: 100%; /* Ensure it takes full width */
+  word-wrap: break-word; /* Allows wrapping of long words if necessary */
+}
+
+@media screen and (max-width: 700px) {
+  .typewriter-title {
+      white-space: normal; /* Allows text wrapping */
+      word-wrap: break-word; /* Ensures long words are broken to fit */
+      width: 100%; /* Maintain full width on smaller screens */
   }
-  
-  @keyframes typing {
-    from {
+}
+
+@keyframes typing {
+  from {
       width: 0;
-    }
-    to {
+  }
+  to {
       width: 100%;
-    }
   }
-  
-  @keyframes blink-caret {
-    from, to {
+}
+
+@keyframes blink-caret {
+  from, to {
       border-color: transparent;
-    }
-    50% {
-      border-color: rgb(255, 255, 255);
-    }
   }
+  50% {
+      border-color: rgb(255, 255, 255);
+  }
+}

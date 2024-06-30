@@ -36,7 +36,7 @@ export class ProjectComponent implements OnInit {
   onProjectClick(project: Project): void {
     this.selectedProject = project;
     // this.router.navigate(['/project', this.selectedProject.slug]);
-    const projectUrl = `/project`;
+    const projectUrl = '/project';
     this.router.navigate([projectUrl], { queryParams: { _id: JSON.stringify(project._id) } });
   }
 
