@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Project } from '../project.interface';
+import { Project } from '../interfaces/project.interface';
 import { setSkillPillColorHelper } from '../csshelper';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { BackendService } from '../backend.service';
@@ -11,15 +11,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./project-page.component.css']
 })
 export class ProjectPageComponent {
-  project!: Project
+  project!: Project;
   htmlContent!: SafeHtml;
+  id!: String; 
 
-
-
-  readonly skillCssMap:  Map<string, string> = new Map<string, string>([
-    ['Python', 'pill-python'],
-    ['JavaScript', 'pill-javascript']
-  ])
   constructor(private backenService: BackendService, private route: ActivatedRoute, private sanitizer: DomSanitizer, private router : Router) {}
 
   ngOnInit(): void {
@@ -27,14 +22,13 @@ export class ProjectPageComponent {
 
       if (params['_id']) {
         let id = JSON.parse(params['_id']);
+        this.id = id;
         this.getProject(id);
       }
       else{
         this.router.navigate(['']);
       }
     });
-
-    // console.log(this.project.body);
   }
 
   async getProject(id: string){

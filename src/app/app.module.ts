@@ -10,6 +10,8 @@ import { DynamicTitleComponent } from './dynamic-title/dynamic-title.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
+import { CommentSectionComponent } from './comment-section/comment-section.component';
+import { CommentComponent } from './comment/comment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +20,8 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     DynamicTitleComponent,
     AboutComponent,
+    CommentSectionComponent,
+    CommentComponent,
     NavbarComponent
   ],
   imports: [

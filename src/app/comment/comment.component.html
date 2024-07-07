@@ -1,0 +1,10 @@
+
+<div class="project-pill">
+    <p class="name">{{ comment.user }}</p>
+    <p>{{ comment.content }}</p>
+</div>
+<div class="thread">
+        <div *ngFor="let child of comment.child">
+            <app-comment  [comment]="child"></app-comment>
+        </div>
+</div>

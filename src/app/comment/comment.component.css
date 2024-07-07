@@ -1,0 +1,42 @@
+.project-pill {
+  width: 100%; 
+  display: inline-block;
+  padding: 0px 10px;
+  border: 2px solid rgba(20, 18, 18, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(140, 108, 108, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-sizing: border-box; 
+  margin: 2px;
+}
+
+.thread {
+  width: 100%; 
+  box-sizing: border-box; 
+  padding: 0px 0px 0px 50px; 
+  margin: 0; 
+}
+
+
+  .name{
+    font-weight: bold;
+  }
+
+
+  
+  .pill-group {
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+
+  @media screen and (max-width: 950px) {
+    .center-div {
+      width: 100%;
+    }
+
+  }

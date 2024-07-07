@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Project } from './project.interface'
+import { Project } from './interfaces/project.interface'
+import { Comment } from './interfaces/comment.interface'
 @Injectable({
   providedIn: 'root'
 })
 export class BackendService {
   
-  private apiUrl = "https://apicaller.austen.gg/";
+  private apiUrl = "http://localhost:3000/";
 
   async getProjects(): Promise<Project[]> {
     try {
@@ -49,6 +50,34 @@ export class BackendService {
       }
       throw error; 
     }
+  }
+
+
+  async getComments(docID: string): Promise<Comment[]>{
+
+    try{
+      const response = await fetch(this.apiUrl + 'api/comments?docID=${docID}',{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!response.ok){
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      else{
+        const data: Comment[] = await response.json();
+        return data;
+      }
+      
+    }
+    catch (error) {
+      if (error instanceof Error){
+        console.error('Error when getting Projects', error.message);
+      }
+      throw error; 
+    }
+
   }
 
 

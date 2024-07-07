@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BackendService } from '../backend.service';
-import { Project } from '../project.interface'
+import { Project } from '../interfaces/project.interface'
 
 import { setSkillPillColorHelper } from '../csshelper';
 

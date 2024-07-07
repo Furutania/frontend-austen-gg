@@ -8,5 +8,5 @@ export interface Project {
     github: string;
     progress: string;
     img: string;
-  }
+}
   
