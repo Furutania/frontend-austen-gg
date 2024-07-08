@@ -6,7 +6,7 @@ import { Comment } from './interfaces/comment.interface'
 })
 export class BackendService {
   
-  private apiUrl = "http://localhost:3000/";
+  private apiUrl = "https://apicaller.austen.gg/";
 
   async getProjects(): Promise<Project[]> {
     try {
